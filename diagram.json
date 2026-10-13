@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "author": "ankush",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -150, "left": -250, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": -70, "left": -250, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot3", "top": 10, "left": -250, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot4", "top": 104.3, "left": -249.8, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -190,
+      "left": 150,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -110, "left": 330, "attrs": { "color": "green" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -40,
+      "left": 325,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -110,
+      "left": 380,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -40,
+      "left": 375,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-led", "id": "led3", "top": -110, "left": 430, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -40,
+      "left": 425,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": -40, "left": 500, "attrs": { "volume": "0.1" } },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 120, "left": 330, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 230,
+      "left": 330,
+      "attrs": { "color": "yellow", "label": "INJECT" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 230,
+      "left": 400,
+      "attrs": { "color": "red", "label": "RESET" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 230,
+      "left": 470,
+      "attrs": { "color": "blue", "label": "REPORT" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": 230,
+      "left": 540,
+      "attrs": { "color": "gray", "label": "OUTAGE" }
+    }
+  ],
+  "connections": [
+    [ "esp:34", "pot1:SIG", "green", [] ],
+    [ "pot1:VCC", "esp:3V3", "red", [] ],
+    [ "pot1:GND", "esp:GND.1", "black", [] ],
+    [ "esp:35", "pot2:SIG", "green", [] ],
+    [ "pot2:VCC", "esp:3V3", "red", [] ],
+    [ "pot2:GND", "esp:GND.1", "black", [] ],
+    [ "esp:32", "pot3:SIG", "green", [] ],
+    [ "pot3:VCC", "esp:3V3", "red", [] ],
+    [ "pot3:GND", "esp:GND.1", "black", [] ],
+    [ "esp:33", "pot4:SIG", "green", [] ],
+    [ "pot4:VCC", "esp:3V3", "red", [] ],
+    [ "pot4:GND", "esp:GND.1", "black", [] ],
+    [ "lcd1:SDA", "esp:21", "blue", [] ],
+    [ "lcd1:SCL", "esp:22", "purple", [] ],
+    [ "lcd1:VCC", "esp:5V", "red", [] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [] ],
+    [ "esp:4", "r1:1", "green", [] ],
+    [ "r1:2", "led1:A", "green", [] ],
+    [ "led1:C", "esp:GND.2", "black", [] ],
+    [ "esp:5", "r2:1", "yellow", [] ],
+    [ "r2:2", "led2:A", "yellow", [] ],
+    [ "led2:C", "esp:GND.2", "black", [] ],
+    [ "esp:2", "r3:1", "red", [] ],
+    [ "r3:2", "led3:A", "red", [] ],
+    [ "led3:C", "esp:GND.2", "black", [] ],
+    [ "esp:18", "bz1:2", "orange", [] ],
+    [ "bz1:1", "esp:GND.2", "black", [] ],
+    [ "esp:19", "relay1:IN", "orange", [] ],
+    [ "relay1:VCC", "esp:5V", "red", [] ],
+    [ "relay1:GND", "esp:GND.2", "black", [] ],
+    [ "esp:25", "btn1:1.l", "yellow", [] ],
+    [ "btn1:2.l", "esp:GND.2", "black", [] ],
+    [ "esp:26", "btn2:1.l", "red", [] ],
+    [ "btn2:2.l", "esp:GND.2", "black", [] ],
+    [ "esp:27", "btn3:1.l", "blue", [] ],
+    [ "btn3:2.l", "esp:GND.2", "black", [] ],
+    [ "esp:14", "btn4:1.l", "gray", [] ],
+    [ "btn4:2.l", "esp:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
